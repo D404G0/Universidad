@@ -1,5 +1,3 @@
-numes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-
 def read_int(message):
     while True:
         try:
@@ -19,22 +17,26 @@ def read_num(mensaje):
 
 def read_str(mensaje):
     while True:
-        try:
-            word = input(mensaje)
-            for k in len(range(word)):
-                if k in word == numes:
-                    raise ValueError
-                return word
-        except ValueError:
+        word = input(mensaje)
+        if word.isnumeric():
             print("Tiene que ingresar una palabra.")
-
-napl = []  #Lista de los nombres de los participantes
+        elif word.isalpha():  
+            return word
+  
+napl = [] #Lista de los nombres de los participantes
+nate = [] #Lista de los nombres del equipo al que pertenece
 
 
 #inicio de codigo.
 lap = read_int("Ingrese el número de participantes que tiene su carrera: ")
 for i in range(lap):
-    name_participant = napl.append(read_str("Ingrese el nombre del ciclista: "))
+    name = read_str("Ingrese el nombre del ciclista: ")
+    napl.append(name)
+    name_team = read_str(f"Ingrese el nombre del equipo al que pertenece el ciclista {name}. ")
+    nate.append(name_team)
+
+print(napl)
+print(nate)
 
 
 
